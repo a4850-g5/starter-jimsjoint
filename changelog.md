@@ -1,6 +1,7 @@
 # Project Changelog
 >Template: YYYY-MM-DD HH:MM - Comment
 
+2016-02-04 15:35 - Fixed the add() and add_item() functions for the Order controller and Orders model
 2016-02-04 15:35 - Added dollar sign next to the item prices
 2016-02-04 15:20 - Fix for Lab Step 4 complete - Handle Order Display 
 2016-02-04 15:03 - Fixed CodeIgniter Configuration for base_url with a /

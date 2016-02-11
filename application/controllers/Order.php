@@ -80,11 +80,10 @@ class Order extends Application {
 	}
 
 	// add an item to an order
-	function add($order_num, $item)
-	{
-		//FIXME
-		redirect('/order/display_menu/' . $order_num);
-	}
+    function add($order_num, $item) {
+        $this->orders->add_item($order_num, $item);
+        redirect('/order/display_menu/' . $order_num);
+    }
 
 	// checkout
 	function checkout($order_num)
