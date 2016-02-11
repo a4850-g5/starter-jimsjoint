@@ -15,7 +15,7 @@ class Orders extends MY_Model {
     // add an item to an order
     function add_item($num, $code) {
         $CI = & get_instance();
-        if ($CI->orderitems->exists($num, $code))
+		if ($CI->orderitems->exists($num, $code))
         {
             $record = $CI->orderitems->get($num, $code);
             $record->quantity++;
