@@ -7,7 +7,7 @@
 ### Group 05 Team Members
 
 * [KT] Kenneth Tran
-* [] David Wang
+* [DW] David Wang
 
 ### Assumptions:
 * Allman-style formatting
