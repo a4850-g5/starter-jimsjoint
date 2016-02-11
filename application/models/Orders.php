@@ -7,32 +7,30 @@
  */
 class Orders extends MY_Model {
 
-    // constructor
-    function __construct() {
-        parent::__construct('orders', 'num');
-    }
+	// constructor
+	function __construct() {
+		parent::__construct('orders', 'num');
+	}
 
-    // add an item to an order
-    function add_item($num, $code) {
-        $CI = & get_instance();
-		if ($CI->orderitems->exists($num, $code))
-        {
-            $record = $CI->orderitems->get($num, $code);
-            $record->quantity++;
-            $CI->orderitems->update($record);
-        } else
-        {
-            $record = $CI->orderitems->create();
-            $record->order = $num;
-            $record->item = $code;
-            $record->quantity = 1;
-            $CI ->orderitems->add($record);
-        }
-    }
+	// add an item to an order
+	function add_item($num, $code) {
+		$CI = & get_instance();
+		if ($CI->orderitems->exists($num, $code)) {
+			$record = $CI->orderitems->get($num, $code);
+			$record->quantity++;
+			$CI->orderitems->update($record);
+		} else {
+			$record = $CI->orderitems->create();
+			$record->order = $num;
+			$record->item = $code;
+			$record->quantity = 1;
+			$CI->orderitems->add($record);
+		}
+	}
 
-    // calculate the total for an order
-    function total($num) {
-		
+	// calculate the total for an order
+	function total($num) {
+
 		$CI = & get_instance();
 		$items = $CI->orderitems->group($num);
 		$result = 0;
@@ -42,23 +40,23 @@ class Orders extends MY_Model {
 				$result += $item->quantity * $menu->price;
 			}
 		}
-        return $result;
-    }
+		return $result;
+	}
 
-    // retrieve the details for an order
-    function details($num) {
-        
-    }
+	// retrieve the details for an order
+	function details($num) {
+		
+	}
 
-    // cancel an order
-    function flush($num) {
-        
-    }
+	// cancel an order
+	function flush($num) {
+		
+	}
 
-    // validate an order
-    // it must have at least one item from each category
-    function validate($num) {
-        return false;
-    }
+	// validate an order
+	// it must have at least one item from each category
+	function validate($num) {
+		return false;
+	}
 
 }
