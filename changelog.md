@@ -1,6 +1,7 @@
 # Project Changelog
 >Template: YYYY-MM-DD HH:MM - Comment
 
+2016-02-04 16:25 - Fix for Lab Step 6 Complete - Checkout functions complete
 2016-02-04 15:57 - Commit() and cancel() functions fixed in Order.php
 2016-02-04 15:35 - Fixed the add() and add_item() functions for the Order controller and Orders model
 2016-02-04 15:35 - Added dollar sign next to the item prices
