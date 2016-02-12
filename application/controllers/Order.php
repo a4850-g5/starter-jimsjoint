@@ -11,14 +11,12 @@
  */
 class Order extends Application {
 
-	function __construct()
-	{
+	function __construct() {
 		parent::__construct();
 	}
 
 	// start a new order
-	function neworder()
-	{
+	function neworder() {
 		$order_num = $this->orders->highest() + 1;
 
 		$neworder = $this->orders->create();
@@ -32,8 +30,7 @@ class Order extends Application {
 	}
 
 	// add to an order
-	function display_menu($order_num = null)
-	{
+	function display_menu($order_num = null) {
 		if ($order_num == null)
 			redirect('/order/neworder');
 
@@ -66,29 +63,25 @@ class Order extends Application {
 	}
 
 	// inject order # into nested variable pair parameters
-	function hokeyfix($varpair, $order)
-	{
+	function hokeyfix($varpair, $order) {
 		foreach ($varpair as &$record)
 			$record->order_num = $order;
 	}
 
 	// make a menu ordering column
-	function make_column($category)
-	{
-		
+	function make_column($category) {
+
 		return $this->menu->some('category', $category);
 	}
 
 	// add an item to an order
-	function add($order_num, $item)
-	{
-		//FIXME
+	function add($order_num, $item) {
+		$this->orders->add_item($order_num, $item);
 		redirect('/order/display_menu/' . $order_num);
 	}
 
 	// checkout
-	function checkout($order_num)
-	{
+	function checkout($order_num) {
 		$this->data['title'] = 'Checking Out';
 		$this->data['pagebody'] = 'show_order';
 		$this->data['order_num'] = $order_num;
@@ -98,15 +91,13 @@ class Order extends Application {
 	}
 
 	// proceed with checkout
-	function commit($order_num)
-	{
+	function commit($order_num) {
 		//FIXME
 		redirect('/');
 	}
 
 	// cancel the order
-	function cancel($order_num)
-	{
+	function cancel($order_num) {
 		//FIXME
 		redirect('/');
 	}
